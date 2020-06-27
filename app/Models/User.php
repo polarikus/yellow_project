@@ -21,4 +21,9 @@ class User extends Model
         'password', 'remember_token',
     ];
 
+public function roles()
+{
+    return $this->hasOne('App\Models\Role');
+}
+  
 }
