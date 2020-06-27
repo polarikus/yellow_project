@@ -15,8 +15,7 @@ class CreateManagersTable extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->integer('team_id');
-            $table->integer('user_id');
+            $table->integer('manager_id');
             $table->timestamps();
         });
     }
