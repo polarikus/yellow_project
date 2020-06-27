@@ -20,4 +20,10 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+public function roles()
+{
+    return $this->hasOne('App\Models\Role');
+}
+  
 }
