@@ -19,10 +19,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
-//Получить всех пользователей
+/*
+ * --------------------------------------
+ * Группа роутов пользователей без аутентификации (для тестов)
+ * --------------------------------------
+ */
+Route::namespace('User')->prefix('user')->group(function (){
+    //Получить всех пользователей
+    Route::get('/', 'UserController@getUsers')->name('GetUsers');
+    //Получить одного пользователя по id
+    Route::get('/{id}', 'UserController@getUserById')->name('GetUserById');
+    //Удаление пользователя
+    Route::delete('/{id}', 'UserController@deleteUser')->name('DeleteUser');
+});
 
-Route::get('/user', 'User\UserController@getUsers')->name('GetUsers');
 
-//Получить одного пользователя по id
 
-Route::get('/user/{id}', 'User\UserController@getUserById')->name('GetUserById');
+
+

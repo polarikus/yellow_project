@@ -64,6 +64,7 @@
         </style>
     </head>
     <body>
+    <input type="hidden" name="url" value="{{ env("APP_URL") }}">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
