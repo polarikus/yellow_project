@@ -65907,7 +65907,7 @@ var Dutylist = /*#__PURE__*/function (_Component) {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-header"
-      }, "\u041F\u0440\u0438\u0432\u0435\u0442 \u0436\u0435\u043B\u0442\u0430\u044F \u043A\u043E\u043C\u0430\u043D\u0434\u0430!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "\u041F\u0440\u0438\u0432\u0435\u0442 \u0435\u0449\u0435 \u0440\u0430\u0437"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, "\u042F \u043A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442 React! =)")))));
     }
@@ -65942,8 +65942,8 @@ if (document.getElementById('react')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Программы\Опенсерв\OSPanel\domains\laravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Программы\Опенсерв\OSPanel\domains\laravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Программы\Опенсерв\OSPanel\domains\yellow_project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Программы\Опенсерв\OSPanel\domains\yellow_project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
