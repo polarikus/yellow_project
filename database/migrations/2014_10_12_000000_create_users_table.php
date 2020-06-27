@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->string('role_id');
             $table->string('name');
-            $table->integer('tel');
+            $table->integer('mobile_phone');
             $table->string('id_avatar');
             $table->integer('id_team');
             $table->string('email')->unique();
