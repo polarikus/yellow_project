@@ -4,20 +4,20 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateUserTypes extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+    //Типы пользователей в задаче
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id('id')->comment('id роли');
-            $table->string('name')->comment('Имя роли');
+        Schema::create('user_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 256)->comment('Описание типа пользователя в задаче');
         });
-
     }
 
     /**
@@ -27,6 +27,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('user_types');
     }
 }
