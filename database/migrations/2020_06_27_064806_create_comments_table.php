@@ -16,9 +16,8 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('task_id')->comment('id Задачи')->constrained();
-            $table->longText('comment_next')->comment('Текст комментария')->nullable();
             $table->foreignId('user_id')->comment('id Пользователя, оставившего комментарий')->constrained();
-            $table->boolean('type_of_comment')->comment('Личный / общий')->nullable();
+            $table->longText('text')->comment('Текст комментария')->nullable();
             $table->timestamps();
         });
     }
