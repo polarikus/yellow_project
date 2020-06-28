@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable()->comment('Название задачи');
+            $table->string('name')->comment('Название задачи');
             $table->foreignId('team_id')->comment('id Команды, которой назначена задача')->constrained();
             $table->foreignId('type_task_id')->comment('id Типа задачи')->constrained('tasks');
             $table->foreignId('status_id')->comment('id Статуса задачи'); //Связь по этому полю в следующей миграции
