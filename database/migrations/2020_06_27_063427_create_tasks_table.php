@@ -19,7 +19,6 @@ class CreateTasksTable extends Migration
             $table->foreignId('task_type_id')->comment('id Типа задачи')->constrained('tasks');
             $table->string('name')->comment('Название задачи');
             $table->foreignId('status_id')->comment('id Статуса задачи'); //Связь по этому полю в следующей миграции
-            $table->string('name')->nullable()->comment('Название задачи');
             $table->dateTimeTz('before_date')->comment('До какого срока нужно выполнить');
             $table->dateTime('solved_at')->comment('Дата выполнения (фактическая)');
             $table->timestamps();
