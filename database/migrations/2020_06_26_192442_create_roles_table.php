@@ -15,7 +15,7 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id('id')->comment('id роли');
-            $table->string('name')->comment('Имя роли')->nullable();
+            $table->string('name')->comment('Имя роли');
         });
 
     }
