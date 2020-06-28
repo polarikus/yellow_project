@@ -18,6 +18,9 @@ class CreateStatusesTable extends Migration
             $table->text('status_name')->comment('Название статуса');
             $table->boolean('is_stop_time')->comment('Признак постановки задачи на паузу');
         });
+        Schema::table('tasks', function (Blueprint $table){
+            $table->foreign('status_id')->references('id')->on('statuses');
+        });
     }
 
     /**
@@ -27,6 +30,9 @@ class CreateStatusesTable extends Migration
      */
     public function down()
     {
+        Schema::table('tasks', function (Blueprint $table){
+            $table->dropForeign(['status_id']);
+        });
         Schema::dropIfExists('statuses');
     }
 }
