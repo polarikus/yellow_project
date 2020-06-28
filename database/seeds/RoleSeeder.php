@@ -19,13 +19,13 @@ class RoleSeeder extends Seeder
     private function data(){
         return $data = [
             [
-                'role_name' => 'Администратор',
+                'name' => 'Администратор',
             ],
             [
-                'role_name' => 'Пользователь',
+                'name' => 'Пользователь',
             ],
             [
-                'role_name' => 'Тим-лид',
+                'name' => 'Тим-лид',
             ]
         ];
     }

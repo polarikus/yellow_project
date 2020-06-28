@@ -15,8 +15,7 @@ class CreateStatusesTable extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->text('status_name')->comment('Название статуса');
-            $table->boolean('is_stop_time')->comment('Признак постановки задачи на паузу');
+            $table->text('name')->comment('Название статуса');
         });
         Schema::table('tasks', function (Blueprint $table){
             $table->foreign('status_id')->references('id')->on('statuses');

@@ -15,13 +15,13 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('team_id')->comment('id Команды, которой назначена задача')->constrained('teams');
+            $table->foreignId('task_type_id')->comment('id Типа задачи')->constrained('tasks');
             $table->string('name')->comment('Название задачи');
-            $table->foreignId('team_id')->comment('id Команды, которой назначена задача')->constrained();
-            $table->foreignId('type_task_id')->comment('id Типа задачи')->constrained('tasks');
             $table->foreignId('status_id')->comment('id Статуса задачи'); //Связь по этому полю в следующей миграции
-            $table->timestamps();
-            $table->dateTimeTz('period_of_execution_before')->comment('До какого срока нужно выполнить');
+            $table->dateTimeTz('before_date')->comment('До какого срока нужно выполнить');
             $table->dateTime('solved_at')->comment('Дата выполнения (фактическая)');
+            $table->timestamps();
         });
     }
 
