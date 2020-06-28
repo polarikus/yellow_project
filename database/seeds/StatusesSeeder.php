@@ -14,8 +14,7 @@ class StatusesSeeder extends Seeder
     {
         foreach ($this->data() as $statuses){
             Status::insert([
-                'status_name' => $statuses['status_name'],
-                'is_stop_time' => $statuses['is_stop_time'],
+                'name' => $statuses['name'],
             ]);
         }
     }
@@ -23,28 +22,22 @@ class StatusesSeeder extends Seeder
     private function data(){
         return $data = [
             [
-                'status_name' => 'Новый',
-                'is_stop_time' => false
+                'name' => 'Новый',
             ],
             [
-                'status_name' => 'В работе',
-                'is_stop_time' => false
+                'name' => 'В работе',
             ],
             [
-                'status_name' => 'В ожидании',
-                'is_stop_time' => true
+                'name' => 'В ожидании',
             ],
             [
-                'status_name' => 'В очереди',
-                'is_stop_time' => true
+                'name' => 'В очереди',
             ],
             [
-                'status_name' => 'Выполнен',
-                'is_stop_time' => true
+                'name' => 'Выполнен',
             ],
             [
-                'status_name' => 'Закрыт',
-                'is_stop_time' => true
+                'name' => 'Закрыт',
             ],
 
         ];
