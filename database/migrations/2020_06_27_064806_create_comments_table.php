@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->foreignId('task_id')->comment('id Задачи')->constrained();
             $table->foreignId('user_id')->comment('id Пользователя, оставившего комментарий')->constrained();
-            $table->longText('text')->comment('Текст комментария')->nullable();
+            $table->longText('text')->comment('Текст комментария');
             $table->timestamps();
         });
     }
