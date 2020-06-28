@@ -16,8 +16,6 @@ class TaskTypeSeeder extends Seeder
             TaskType::insert([
                 'name' => $types['name'],
                 'description' => $types['description'],
-                'created_at' => date('c'),
-                'updated_at' => date('c')
             ]);
         }
     }

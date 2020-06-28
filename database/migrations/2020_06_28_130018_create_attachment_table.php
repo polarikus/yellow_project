@@ -16,8 +16,8 @@ class CreateAttachmentTable extends Migration
         Schema::create('attachment', function (Blueprint $table) {
             $table->id();
             $table->foreignId('task_id')->comment('id задачи, к которой прикреплено вложение')->constrained();
-            $table->string('path', 256)->comment('Путь к вложению')->nullable();
-            $table->string('file_extension', 45)->comment('Расширение файла')->nullable();
+            $table->string('path', 256)->comment('Путь к вложению');
+            $table->string('file_extension', 45)->comment('Расширение файла');
             $table->timestamps();
         });
     }
