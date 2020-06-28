@@ -15,10 +15,10 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('task_id')->comment('id Задачи');
-            $table->longText('comment_next')->comment('Текст комментария');
-            $table->bigInteger('user_id')->comment('id Пользователя, оставившего комментарий');
-            $table->bigInteger('type_of_comment')->comment('id Типа комментария');
+            $table->foreignId('task_id')->comment('id Задачи')->constrained();
+            $table->longText('comment_next')->comment('Текст комментария')->nullable();
+            $table->foreignId('user_id')->comment('id Пользователя, оставившего комментарий')->constrained();
+            $table->boolean('type_of_comment')->comment('Личный / общий')->nullable();
             $table->timestamps();
         });
     }
