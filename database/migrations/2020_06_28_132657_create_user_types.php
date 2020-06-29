@@ -17,6 +17,7 @@ class CreateUserTypes extends Migration
         Schema::create('user_types', function (Blueprint $table) {
             $table->id();
             $table->string('name', 256)->comment('Описание типа пользователя в задаче');
+            $table->timestamps();
         });
     }
 
