@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     public $timestamps = false;
+    protected $table = 'roles';
+    protected $fiilable =[
+        'id',
+        'name'
+    ];
 
     public function user()
     {
