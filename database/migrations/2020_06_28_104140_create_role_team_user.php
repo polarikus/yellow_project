@@ -18,7 +18,6 @@ class CreateRoleTeamUser extends Migration
             $table->foreignId('role_id')->constrained();
             $table->foreignId('team_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->timestamps();
         });
 
     }
