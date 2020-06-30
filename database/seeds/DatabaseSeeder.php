@@ -23,16 +23,13 @@ class DatabaseSeeder extends Seeder
     //Если ошибка подключения класса юзай composer dump-autoload
     public function run()
     {
-        factory(Comment::class, 4)->create();
-        factory(Task::class, 4)->create();
-        factory(Task_Type::class, 4)->create();
-        factory(Team::class, 4)->create();
-        factory(Status::class, 4)->create();
-        factory(Role::class, 4)->create();
-        factory(Role_Team_User::class, 4)->create();
-        factory(App\Models\User_Type::class,4)->create();
-        //factory(App\Models\Task_User_User_Type::class, 4)->create();
-        //factory(App\Models\Attachment::class, 4)->create();
+        $this->call([
+            //RoleSeeder::class,
+            //StatusesSeeder::class,
+            //TaskTypeSeeder::class,
+            //TeamSeeder::class
+            TaskSeeder::class
+        ]);
     }
     
       
