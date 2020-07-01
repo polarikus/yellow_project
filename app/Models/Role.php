@@ -7,9 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     public $timestamps = false;
+    protected $table = 'roles';
+    protected $fiilable =[
+        'id',
+        'name'
+    ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsToMany('App\User', 'role_team_user', 'role_id', 'user_id');
+    }
+
+    public function teams(){
+        $this->belongsToMany('App\Models\Team', 'role_team_user', 'role_id', 'team_id');
     }
 }
