@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\Team;
 
+use App\Exceptions\externalError;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\Role_Team_User;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Team;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addLeader(Request $request){
         $team_id = $request->input('team_id');
         $role_id = $request->input('role_id');
@@ -28,4 +35,21 @@ class TeamController extends Controller
         return response()->json($team->users());
         }
     }
+
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getUsers($id, Request $request){
+        $users = Team::find($id);
+        $resp = $users->users;
+        $role = Role::find($users->users[0]->pivot->role_id);
+        $resp->push(['role' => $role]);
+        return response()->json($resp,200);
+
+    }
 }
+
+
