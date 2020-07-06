@@ -17,16 +17,13 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
+
+$factory->define(App\Models\Team::class, function (Faker $faker) {
+    $faker = \Faker\Factory::create('ru_RU');
     return [
-        'name' => $faker->name,
-        'login' => $faker->userName,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'phone'=> $faker->numberBetween(0,799999999),
-        'avatar_path'=> $faker->url,
-        'super_user'=> $faker->boolean,
-        'password' => bcrypt('secret'),// password
-        'remember_token' => Str::random(10),
+        'name' => $faker->colorName,
+        'creator_id' => function () {
+            return factory(App\Models\User::class)->create()->id;
+        },
     ];
 });

@@ -21,9 +21,14 @@ class User extends Model
         'password', 'remember_token',
     ];
 
-public function roles()
-{
-    return $this->hasOne('App\Models\Role');
-}
-  
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Role', 'role_team_user', 'user_id', 'role_id');
+    }
+
+    public function teams()
+    {
+        return $this->belongsToMany('App\Models\Team', 'role_team_user', 'user_id', 'team_id');
+    }
+
 }
