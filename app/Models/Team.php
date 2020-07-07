@@ -13,13 +13,9 @@ class Team extends Model
             'creator_id',
             'name'
     ];
-    public function users()
-    {
-        return $this->belongsToMany('App\User', 'role_team_user', 'team_id', 'user_id');
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany('App\Models\Role', 'role_team_user', 'team_id', 'role_id');
-    }
+   public function users(){
+       return $this->belongsToMany('App\User', 'role_team_user', 'role_id', 'user_id');
+   }
 }
+
+

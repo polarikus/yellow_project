@@ -2,44 +2,67 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Exceptions\externalError;
+use App\Exceptions\UserNotFoundException;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Team;
+use App\User;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 
 class UserController extends Controller
 {
-    public function getUsers() {
-        return response()->json(User::paginate(15), 200);
+    /**
+     * Получить всех пользователей с пагинацией
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
+     * @throws NotFoundException
+     */
+    public function getUsers(User $user)
+    {
+        $resp = $user->paginate(1);
+        if (!$resp) {
+            throw new NotFoundException();
+        }
+        return response()->json($resp, 200);
     }
 
-    public function getUserById($id){
-        if (User::where('id', '=', $id)->exists()){
-            return response()->json(User::find($id), 200);
-        }else{
-            return response()->json([
-                'error' => "Пользователь с id = $id не найден"
-            ], 412);
+    /**
+     * Получить пользователя по id
+     * @param int $id id пользователя
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
+     * @throws NotFoundException
+     */
+    public function getUserById(int $id, User $user)
+    {
+        $resp = $user->find($id);
+        if (!$resp) {
+            throw new NotFoundException();
         }
+        return response()->json($resp, 200);
     }
 
-    public function deleteUser($id){
-        if (User::where('id', '=', $id)->exists()){
-            $user = User::find($id);
-            if (User::where('id', '=', $id)->delete()){
-                return response()->json([
-                    'result' => 'Удалён',
-                    'user' => $user
-                ], 200);
-            }else{
-                return response()->json([
-                    'error' => 'Ошибка удаления в БД'
-                ], 500);
-            }
-        }else{
-            return response()->json([
-                'error' => "Пользователь с id = $id не найден"
-            ], 412);
+    /**
+     * Удаление пользователя по id
+     * @param $id
+     * @param User $user
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     * @throws externalError
+     * @throws NotFoundException
+     */
+    public function deleteUser($id, User $user)
+    {
+        $resp = $user->find($id);
+        if (!$resp) {
+            throw new NotFoundException();
         }
+        if ($resp->delete()) {
+            return response('', 200);
+        } else {
+            throw new externalError();
+        }
+
     }
 }
