@@ -1,0 +1,105 @@
+FORMAT: 1A
+HOST: http://yoarDomain.lc/api
+
+# Yellow Proj
+
+Пока пробуем работать без CSRF токена
+
+## Все Пользователи [/users]
+
+### Показать всехпользователей [GET]
+
++ Response 200 (application/json)
+
+        {
+            "current_page": 1,
+            "data": [
+                {
+                    "id": 1,
+                    "name": "Ms. Otilia Abernathy",
+                    "login": "kerluke.estell",
+                    "email": "gschinner@example.com",
+                    "email_verified_at": "2020-07-01T14:04:18.000000Z",
+                    "phone": 77040460,
+                    "avatar_path": "https://avatarko.ru/img/avatar/15/anonim_14967.jpg",
+                    "super_user": 0,
+                    "created_at": "2020-07-01T14:04:18.000000Z",
+                    "updated_at": "2020-07-01T14:04:18.000000Z",
+                    "deleted_at": null
+                }
+            ],
+            "first_page_url": "http://yelow2.lc/api/user?page=1",
+            "from": 1,
+            "last_page": 4,
+            "last_page_url": "http://yelow2.lc/api/user?page=4",
+            "next_page_url": "http://yelow2.lc/api/user?page=2",
+            "path": "http://yelow2.lc/api/user",
+            "per_page": 1,
+            "prev_page_url": null,
+            "to": 1,
+            "total": 4
+        }
+        
++ Response 204
++ Response 415 (application/json)
+
+        {
+            "Supported Media Type": "type"
+        }
++ Response 500 (application/json)
+
+        {
+            "error": "Internal Server Error"
+        }
+
+
+## Один пользователь [/users/id]
+
+### Показать пользователя по id [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Ms. Otilia Abernathy",
+            "login": "kerluke.estell",
+            "email": "gschinner@example.com",
+            "email_verified_at": "2020-07-01T14:04:18.000000Z",
+            "phone": 77040460,
+            "avatar_path": "https://avatarko.ru/img/avatar/15/anonim_14967.jpg",
+            "super_user": 0,
+            "created_at": "2020-07-01T14:04:18.000000Z",
+            "updated_at": "2020-07-01T14:04:18.000000Z",
+            "deleted_at": null
+        }
+
++ Response 204
+
++ Response 415 (application/json)
+
+        {
+            "Supported Media Type": "type"
+        }
++ Response 500 (application/json)
+
+        {
+            "error": "Internal Server Error"
+        }
+        
+### Удалить пользователя по id [DELETE]
+
++ Response 200 (application/json)
+
++ Response 204
+
++ Response 415 (application/json)
+
+        {
+            "Supported Media Type": "type"
+        }
+        
++ Response 500 (application/json)
+
+        {
+            "error": "Internal Server Error"
+        }
