@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             RoleTeamUserSeeder::class,
             StatusesSeeder::class,
             TaskTypeSeeder::class,
+            UserTypeSeeder::class,
+            TaskSeeder::class
         ]);
     }
 }
