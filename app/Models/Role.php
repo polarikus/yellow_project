@@ -15,6 +15,13 @@ class Role extends Model
 
     public function users()
     {
+        return $this->belongsTo('App\Models\User', 'role_team_user', 'role_id', 'user_id');
+    }
+  
+    public function team()
+    {
+        return $this->belongsTo('App\Models\User', 'role_team_user', 'role_id', 'team_id');
+      
         return $this->belongsToMany('App\User', 'role_team_user', 'role_id', 'user_id');
     }
 
