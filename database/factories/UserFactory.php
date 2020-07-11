@@ -27,7 +27,6 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'login' => $faker->userName,
         'name' => $faker->name,
-        'login' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'phone'=> $faker->numberBetween(0,799999999),
