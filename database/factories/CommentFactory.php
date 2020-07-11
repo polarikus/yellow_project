@@ -11,7 +11,7 @@ $factory->define(Comment::class, function (Faker $faker) {
 
         'text' => $faker->sentence(3),
         'user_id' => function () {
-            return factory(App\User::class)->create()->id;
+            return factory(App\Models\User::class)->create()->id;
           },
         'task_id' => function () {
             return factory(App\Models\Task::class)->create()->id;
