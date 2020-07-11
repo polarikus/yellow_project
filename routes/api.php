@@ -33,6 +33,9 @@ Route::namespace('User')->prefix('user')->group(function (){
     Route::delete('/{id}', 'UserController@deleteUser')->name('DeleteUser');
 });
 
+Route::put('team/addLeader', 'Team\TeamController@addLeader')->name('addLeader');
+Route::get('team/users/{id}', 'Team\TeamController@getUsers');
+
 
 
 
