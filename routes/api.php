@@ -42,7 +42,7 @@ Route::namespace('Api')->prefix('task')->group(function (){
 Route::put('team/addLeader', 'Team\TeamController@addLeader')->name('addLeader');
 Route::get('team/users/{id}', 'Team\TeamController@getUsers');
 
-Route::resource('comment','API\CommentController');
+Route::apiResource('comment','API\CommentController');
 
 
 
