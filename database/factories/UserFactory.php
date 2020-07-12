@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(App\Models\User::class, function (Faker $faker) {
     $avatars = [
         'https://avatarko.ru/img/avatar/30/pokemon_naushniki_pikachu_29279.jpg',
         'https://avatarko.ru/img/avatar/11/multfilm_South_Park_Kyle_10024.jpg',
@@ -27,7 +27,6 @@ $factory->define(User::class, function (Faker $faker) {
     return [
         'login' => $faker->userName,
         'name' => $faker->name,
-        'login' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'phone'=> $faker->numberBetween(0,799999999),
