@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +41,9 @@ Route::namespace('Api')->prefix('task')->group(function (){
 
 Route::put('team/addLeader', 'Team\TeamController@addLeader')->name('addLeader');
 Route::get('team/users/{id}', 'Team\TeamController@getUsers');
+
+Route::apiResource('comment','API\CommentController');
+
 
 
 
