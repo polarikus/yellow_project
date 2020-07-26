@@ -15,7 +15,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return Comment::orderBy('created_at')->paginate(5);
+        return Comment::All();
     }
 
     /**
@@ -26,7 +26,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Comment::create($request->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        //
+        return $comment = Comment::findOrFail($id);
     }
 
     /**
@@ -49,7 +49,9 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $comment->fill($request->except(['id']));
+        return $comment->save();
     }
 
     /**
@@ -60,6 +62,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        return $comment->delete();
     }
 }
